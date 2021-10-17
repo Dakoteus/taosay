@@ -3,6 +3,6 @@
 # Description
 This is a program that pulls a random section of The Tao of Programming into cowsay
 # Requirements
--python
--cowsay
--lolcat
+-python  
+-cowsay  
+-lolcat  
