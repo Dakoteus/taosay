@@ -1,2 +1,29 @@
 #!/bin/bash
-python ./load_tao.py | cowsay | lolcat
+num=$#
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		-s)
+			shift
+			speed_argument=$1
+			speed_animate=1
+			shift
+			;;
+		-a)
+			animate=1
+			shift
+			;;
+		*)
+			echo "$1 is not a recognized flag!";
+			exit
+			shift
+			;;
+	esac
+done
+
+if [[ $speed_animate -eq 1 ]];then
+	python ./load_tao.py | cowsay | lolcat -F .05 -p 1 --animate --speed "$speed_argument";
+elif [[ $animate -eq 1 ]];then
+	python ./load_tao.py | cowsay | lolcat -F .05 -p 1 --animate --speed 30;
+else
+	python ./load_tao.py | cowsay | lolcat -F .05 -p 1
+fi
